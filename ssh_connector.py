@@ -22,7 +22,11 @@ def get_host_info(config_file):
 	return host_list
 
 def connect(host):
-	command = 'ssh %s' % host['Host']
+	path = host.get('#Path', None)
+	if path:
+		command = 'ssh %s -t "cd %s; /bin/bash"' % (host['Host'], host['#Path'])
+	else:
+		command = 'ssh %s' % host['Host']
 	os.system(command)
 
 if __name__ == '__main__':
@@ -34,7 +38,7 @@ if __name__ == '__main__':
 		print '%s.%s(%s:%s)' % (num+1, host.get('Host','None'), host.get('HostName','None'), host.get('Port', '22'))
 
 	num = input(':')
-	
+
 	if num < 1 or num > len(host_list):
 		exit(0)
 
