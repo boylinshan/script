@@ -1,1 +1,1 @@
-tool script
+tools script
