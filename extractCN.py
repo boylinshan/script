@@ -22,8 +22,7 @@ class CNStringChecker(object):
 		self._convert_path(os.path.abspath(input_path))
 
 		#暂时写死
-		self.ingoreList = ('E:\H48_SVN\code\client\script\client_data', 'E:\H48_SVN\code\client\script\game_common\data', 
-						 	'E:\H48_SVN\code\hd2_server\server\engine\game_common\data')
+		self.ingoreList = ()
 
 		return
 
